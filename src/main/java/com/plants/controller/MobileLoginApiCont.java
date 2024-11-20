@@ -7,10 +7,12 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -39,6 +41,12 @@ public class MobileLoginApiCont {
 	
 	@Autowired
     private JwtUtil jwtUtil;
+	
+	@GetMapping("/GetsendOTP")
+	public ResponseEntity<String> sendOTP() {
+	    // Your logic for sending OTP
+	    return ResponseEntity.ok("OTP Sent");
+	}
 	
 	@PostMapping("/sendOTP")
 	public ResponseEntity<Map<String, String>> sendOTP(@RequestBody Map<String, String> request) {
